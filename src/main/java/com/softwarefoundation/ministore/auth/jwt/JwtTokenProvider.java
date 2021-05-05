@@ -2,6 +2,7 @@ package com.softwarefoundation.ministore.auth.jwt;
 
 import com.softwarefoundation.ministore.auth.service.UsuarioService;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,15 @@ public class JwtTokenProvider {
             return bearerToken.substring(7, bearerToken.length());
         }
         return null;
+    }
+
+    public boolean validateToken(final String token){
+        try{
+            Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+            return !claims.getBody().getExpiration().before(new Date());
+        }catch (Exception e){
+            return false;
+        }
     }
 
 }
