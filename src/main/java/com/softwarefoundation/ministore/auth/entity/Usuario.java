@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -47,7 +48,11 @@ public class Usuario implements UserDetails, Serializable {
     }
 
     public List<String> getRoles(){
-        return null;
+        List<String> roles = new ArrayList<>();
+        this.permissoes.stream().forEach(permissao -> {
+            roles.add(permissao.getDescricao());
+        });
+        return roles;
     }
 
     @Override
