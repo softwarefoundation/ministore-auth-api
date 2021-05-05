@@ -11,6 +11,7 @@ import java.text.MessageFormat;
 import java.util.Objects;
 
 @Primary
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
 
     private UsuarioRepository usuarioRepository;
