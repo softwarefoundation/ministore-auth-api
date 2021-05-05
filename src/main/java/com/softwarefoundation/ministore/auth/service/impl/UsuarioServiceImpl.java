@@ -2,6 +2,7 @@ package com.softwarefoundation.ministore.auth.service.impl;
 
 import com.softwarefoundation.ministore.auth.repository.UsuarioRepository;
 import com.softwarefoundation.ministore.auth.service.UsuarioService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.text.MessageFormat;
 import java.util.Objects;
 
+@Primary
 public class UsuarioServiceImpl implements UsuarioService {
 
     private UsuarioRepository usuarioRepository;
