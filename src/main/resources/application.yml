@@ -23,7 +23,7 @@ spring:
 security:
   jwt:
     token:
-      secret-key: secret-key
+      secret-key: 3a8382882b7bdf58b7d3abcb3f6aa867
       expire-length: 360000
 # PATHS
 # http://localhost:8083/ministore-auth-api/h2-console/
